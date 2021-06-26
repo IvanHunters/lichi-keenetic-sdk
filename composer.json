@@ -1,0 +1,33 @@
+{
+  "name": "lichi/keenetic-sdk",
+  "type": "library",
+  "description": "PHP SDK for Keenetic routers",
+  "keywords": ["Lichi","lichi", "keenetic php sdk", "keenetic", "keenetic api"],
+  "homepage": "https://github.com/IvanHunters/lichi-keenetic-sdk",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ivan Okhotnikov",
+      "email": "ohotnikovivan@yandex.ru"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "guzzlehttp/guzzle": "~7",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Lichi\\Keenetic\\": "src/",
+      "Lichi\\Keenetic\\Sdk\\": "src/sdk/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  }
+}
