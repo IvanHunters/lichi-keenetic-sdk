@@ -47,6 +47,17 @@ class DevicesList
         return $devices;
     }
 
+    public function getDisabled(bool $status): array
+    {
+        $devices = [];
+        foreach ($this->devices as $device) {
+            if (($device['access'] === "permit") !== $status) {
+                $devices[] = $device;
+            }
+        }
+        return $devices;
+    }
+
     public function getRegistered(bool $status):array
     {
         $devices = [];

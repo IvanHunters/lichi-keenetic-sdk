@@ -16,12 +16,12 @@ $client = new Client([
 
 $apiProvider = new ApiProvider($client, getenv('API_LOGIN'), getenv('API_PASS'));
 
-$about = new About($apiProvider);
-$aboutData = $about->get();
+//$about = new About($apiProvider);
+//$aboutData = $about->get();
 
 $deviceList = new DevicesList($apiProvider);
-//$active = $deviceList->getActive(true);
-//$unregistered = $deviceList->getRegistered(false);
+$disabled = $deviceList->getDisabled(true);
+$unregistered = $deviceList->getRegistered(false);
 //
 //$deviceList->registration("Клиент", $unregistered[0]);
 //$deviceList->unRegistration("cc:2d:21:6d:d7:99");

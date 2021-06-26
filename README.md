@@ -36,6 +36,7 @@ $deviceList = new DevicesList($apiProvider);
 
 $active = $deviceList->getActive(true);
 $unregistered = $deviceList->getRegistered(false);
+$disabled = $deviceList->getDisabled(true);
 
 $deviceList->registration("Клиент", $unregistered[0]);
 $deviceList->unRegistration("38:6b:1c:96:b4:83");
