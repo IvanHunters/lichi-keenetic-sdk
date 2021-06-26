@@ -63,7 +63,8 @@ class DevicesList
         return $this->devices;
     }
 
-    public function registration(string $name, array $userData, ?int $shape = null, bool $pinIp = true) {
+    public function registration(string $name, array $userData, ?int $shape = null, bool $pinIp = true)
+    {
         $mac = $userData['mac'];
         $interface = $userData['interface']['id'];
         $ip = $userData['ip'];
@@ -98,7 +99,8 @@ class DevicesList
         }
     }
 
-    public function unRegistration(string $mac){
+    public function unRegistration(string $mac)
+    {
         $this->apiProvider->callMethod(
             "POST",
             "/rci/ip/dhcp/host",
@@ -117,6 +119,37 @@ class DevicesList
                 RequestOptions::JSON => [
                     "mac" =>$mac,
                     "no" => true
+                ]
+            ]
+        );
+    }
+
+    public function disableInternet(string $mac)
+    {
+        $this->apiProvider->callMethod(
+            "POST",
+            "/rci/ip/hotspot/host",
+            [
+                RequestOptions::JSON => [
+                    "mac" => $mac,
+                    "deny" => true,
+                    "policy" => false,
+                    "schedule" => false
+                ]
+            ]
+        );
+    }
+
+    public function enableInternet($mac){
+        $this->apiProvider->callMethod(
+            "POST",
+            "/rci/ip/hotspot/host",
+            [
+                RequestOptions::JSON => [
+                    "mac" => $mac,
+                    "permit" => true,
+                    "policy" => false,
+                    "schedule" => false
                 ]
             ]
         );

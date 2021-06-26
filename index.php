@@ -19,4 +19,7 @@ $active = $deviceList->getActive(true);
 $unregistered = $deviceList->getRegistered(false);
 
 $deviceList->registration("Клиент", $unregistered[0]);
-$deviceList->unRegistration("38:6b:1c:96:b4:83");
+$deviceList->unRegistration("cc:2d:21:6d:d7:99");
+
+$deviceList->disableInternet("cc:2d:21:6d:d7:99");
+$deviceList->enableInternet("cc:2d:21:6d:d7:99");
